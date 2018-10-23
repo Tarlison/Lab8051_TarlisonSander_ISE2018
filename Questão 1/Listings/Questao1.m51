@@ -1,0 +1,133 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    10/16/2018  12:34:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\Questao1 PRINT (.\Listings\Questao1.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Questao1 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         ?DT?MAIN
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     07FAH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0072H     UNIT         ?PR?COININTERRUPT?MAIN
+            CODE    08FEH     002EH     UNIT         ?PR?_DELAY?MAIN
+            CODE    092CH     000CH     UNIT         ?PR?MAIN?MAIN
+            CODE    0938H     0009H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Questao1 (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?COININTERRUPT?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Questao1 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/16/2018  12:34:30  PAGE 2
+
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:088CH         PUBLIC        coinInterrupt
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  B:00A8H.7       PUBLIC        EA
+  D:0008H         PUBLIC        DESLIGADO
+  B:0080H.1       PUBLIC        P0_1
+  C:090CH         PUBLIC        _delay
+  B:0080H.2       PUBLIC        P0_2
+  B:00B0H.2       PUBLIC        P3_2
+  C:092CH         PUBLIC        main
+  D:000AH         PUBLIC        LIGADO
+  B:00A8H.0       PUBLIC        EX0
+  -------         PROC          L?0021
+  -------         ENDPROC       L?0021
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time_ms
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:090CH         LINE#         8
+  C:090CH         LINE#         10
+  C:0916H         LINE#         11
+  C:0919H         LINE#         12
+  C:0924H         LINE#         13
+  C:092BH         LINE#         14
+  -------         ENDPROC       _DELAY
+  -------         PROC          COININTERRUPT
+  C:088CH         LINE#         15
+  C:089FH         LINE#         16
+  C:08B5H         LINE#         17
+  C:08B5H         LINE#         18
+  C:08B5H         LINE#         19
+  C:08B8H         LINE#         20
+  C:08BBH         LINE#         21
+  C:08C3H         LINE#         22
+  C:08C5H         LINE#         23
+  C:08C7H         LINE#         24
+  C:08DDH         LINE#         25
+  C:08DDH         LINE#         26
+  C:08DDH         LINE#         27
+  C:08E0H         LINE#         28
+  C:08E3H         LINE#         29
+  C:08EBH         LINE#         30
+  C:08EDH         LINE#         31
+  C:08EDH         LINE#         32
+  -------         ENDPROC       COININTERRUPT
+  -------         PROC          MAIN
+  C:092CH         LINE#         34
+  C:092CH         LINE#         35
+  C:092EH         LINE#         36
+  C:0930H         LINE#         37
+  C:0934H         LINE#         38
+  C:0936H         LINE#         39
+  C:0936H         LINE#         41
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/16/2018  12:34:30  PAGE 3
+
+
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00B7H BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=327
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

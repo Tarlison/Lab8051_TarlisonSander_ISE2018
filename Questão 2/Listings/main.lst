@@ -1,0 +1,66 @@
+C51 COMPILER V9.59.0.0   MAIN                                                              10/16/2018 12:54:35 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <at89x52.h>
+   2          #define Esteira_produto P1_0
+   3          #define Esteira_caixa P1_6
+   4          #define AndaEsteira_caixa P1_7
+   5          #define ParaEsteira_produto P1_1
+   6          const LIGADO = 1;
+   7          const DESLIGADO = 0;
+   8          int contador = 0;
+   9          
+  10          void caixaCheiaInterrupt() interrupt 1{
+  11   1        TR0 = 0; //pausa timer para recarregar (Timer Stop)
+  12   1        TH0 = 0x3C; //recarrega o timer com o valor inicial de 
+  13   1        TL0 = 0xAF; //15.535 
+  14   1        TR0 = 1; //ativa timer para contar (Timer RUN)
+  15   1        contador++;
+  16   1        if(contador == 2500){ //Quando o contador for igual a 600, a caixa estará cheia então ocorre a parada da 
+             -Esteira_Produto
+  17   2          ParaEsteira_produto = LIGADO; // Esteira do produto para, para a Esteira da caixa andar e a caixa trocar
+  18   2          AndaEsteira_caixa = LIGADO; // Esteira da caixa anda para trocar a caixa
+  19   2          Esteira_produto = DESLIGADO; //Pino sinalizador da esteira produto em movimento é desligado;
+  20   2          Esteira_caixa = DESLIGADO; //Pino sinalizador da esteira caixa parada é desligado;
+  21   2        }else if(contador == 5000){
+  22   2          ParaEsteira_produto = DESLIGADO; // Agora que a caixa já andou e a Esteira do produto pode andar, deslig
+             -amos esse pino;
+  23   2          AndaEsteira_caixa = DESLIGADO; // Agora que a caixa já andou desligamos esse pino;
+  24   2          Esteira_produto = LIGADO; // Pino sinalizador de Esteira produto em movimento é ligado novamente;
+  25   2          Esteira_caixa = LIGADO; // Pino sinalizador de Esteira da caixa parada é ligado;
+  26   2          contador = 0; //zerando o contador para reiniciar a contagem de produtos na caixa;
+  27   2        }
+  28   1      }
+  29          
+  30          int main(){
+  31   1          EA = 1; 
+  32   1          ET0 = 1;
+  33   1          TMOD = 1; 
+  34   1          TR0 = 1;
+  35   1          P1 = DESLIGADO; //Desligando todos os pinos da porta P1, para ficar visivel a operação nas portas;
+  36   1          Esteira_produto = LIGADO; //Pino Sinalizador de esteira produto em movimento é ativado;
+  37   1          Esteira_caixa   = LIGADO; //Pino Sinalizador de esteira caixa parada é ativado;
+  38   1          while(1){
+  39   2          }
+  40   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    117    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

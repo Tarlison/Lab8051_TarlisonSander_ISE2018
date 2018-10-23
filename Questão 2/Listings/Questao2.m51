@@ -1,0 +1,118 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    10/16/2018  12:54:35  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\Questao2 PRINT (.\Listings\Questao2.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Questao2 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         ?DT?MAIN
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     005DH     UNIT         ?PR?CAIXACHEIAINTERRUPT?MAIN
+            CODE    08E9H     0018H     UNIT         ?PR?MAIN?MAIN
+            CODE    0901H     000DH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Questao2 (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Questao2 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:00A8H.7       PUBLIC        EA
+  D:0008H         PUBLIC        DESLIGADO
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  10/16/2018  12:54:35  PAGE 2
+
+
+  B:0090H.0       PUBLIC        P1_0
+  B:0090H.1       PUBLIC        P1_1
+  B:0090H.6       PUBLIC        P1_6
+  B:0090H.7       PUBLIC        P1_7
+  C:08E9H         PUBLIC        main
+  D:000AH         PUBLIC        LIGADO
+  D:0089H         PUBLIC        TMOD
+  C:088CH         PUBLIC        caixaCheiaInterrupt
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  D:000CH         PUBLIC        contador
+  -------         PROC          CAIXACHEIAINTERRUPT
+  C:088CH         LINE#         10
+  C:0890H         LINE#         11
+  C:0892H         LINE#         12
+  C:0895H         LINE#         13
+  C:0898H         LINE#         14
+  C:089AH         LINE#         15
+  C:08A2H         LINE#         16
+  C:08AAH         LINE#         17
+  C:08B2H         LINE#         18
+  C:08B4H         LINE#         19
+  C:08BCH         LINE#         20
+  C:08BEH         LINE#         21
+  C:08CAH         LINE#         22
+  C:08D2H         LINE#         23
+  C:08D4H         LINE#         24
+  C:08DCH         LINE#         25
+  C:08DEH         LINE#         26
+  C:08E4H         LINE#         27
+  C:08E4H         LINE#         28
+  -------         ENDPROC       CAIXACHEIAINTERRUPT
+  -------         PROC          MAIN
+  C:08E9H         LINE#         30
+  C:08E9H         LINE#         31
+  C:08EBH         LINE#         32
+  C:08EDH         LINE#         33
+  C:08F0H         LINE#         34
+  C:08F2H         LINE#         35
+  C:08F5H         LINE#         36
+  C:08FDH         LINE#         37
+  C:08FFH         LINE#         38
+  C:08FFH         LINE#         39
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0084H BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 code=276
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
